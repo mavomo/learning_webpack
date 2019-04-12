@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Debby';
+    src: url("./fonts/Debby.ttf") format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Dakota';
+    src: url("fonts/dakota_update.otf") format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+.hello {
+    color: red;
+    font-family: 'Dakota';
+    background: url('./icon.png');
+}
