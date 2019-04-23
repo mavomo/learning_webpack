@@ -1,28 +1,13 @@
-import _ from 'lodash';
-import printer from './printer/print'
-import {cube} from "./math";
-
 const component = () => {
-    //let element = document.createElement('div');
-    let element = document.createElement('pre');
-    element.innerHTML = [
-        'Hello webpack',
-        '5 cubed is equal to ' + cube(5)
+    return import(/* webpackChunkName: "lodash" */'lodash').then(
+        ({default: _}) => {
 
-    ].join('\n\n');
-
-  /*  const clickableBtn = createAClickableButton();
-
-    element.appendChild(clickableBtn);*/
-    return element;
+            const element = document.createElement('div');
+            element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+            return element;
+        }).catch(error => 'An error occured while loading the component');
 };
 
-function createAClickableButton() {
-    var btnElement = document.createElement('button');
-    btnElement.innerHTML = 'Click me and check the console';
-
-    btnElement.onclick = printer;
-    return btnElement;
-}
-
-document.body.appendChild(component());
+component().then(component => {
+    document.body.appendChild(component);
+});
