@@ -1,13 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const WebServerPlugin = require('webpack-dev-server');
 
 module.exports = {
-    mode:'development',
+    mode: 'development',
     entry: {
         app: './src/index.js',
-        print: './src/printer/print.js'
+        print: './src/printer/print.js',
+        another: './src/another-module.js'
     },
     devtool: "inline-source-map",
     devServer: {
@@ -22,5 +22,10 @@ module.exports = {
     output: {
         filename: "[name].bundle.js",
         path: path.resolve(__dirname, 'dist')
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
     }
 };

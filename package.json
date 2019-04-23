@@ -1,6 +1,7 @@
 {
   "name": "learning_webpack",
   "version": "1.0.0",
+  "sideEffects": false,
   "description": "Getting started with webpack",
   "private": true,
   "scripts": {

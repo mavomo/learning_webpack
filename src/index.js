@@ -1,12 +1,19 @@
 import _ from 'lodash';
 import printer from './printer/print'
+import {cube} from "./math";
 
 const component = () => {
-    let element = document.createElement('div');
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-    const clickableBtn = createAClickableButton();
+    //let element = document.createElement('div');
+    let element = document.createElement('pre');
+    element.innerHTML = [
+        'Hello webpack',
+        '5 cubed is equal to ' + cube(5)
 
-    element.appendChild(clickableBtn);
+    ].join('\n\n');
+
+  /*  const clickableBtn = createAClickableButton();
+
+    element.appendChild(clickableBtn);*/
     return element;
 };
 
